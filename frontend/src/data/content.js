@@ -41,7 +41,7 @@ export const specialImages = [
   img('containers.jpg'),
   img('lowbed.jpg'),
   img('road-truck2.jpg'),
-  img('road-truck.jpg'),
+  img('road-truck3.jpg'),
 ];
 
 // Index of the highlighted region in coverage.regions

@@ -133,5 +133,25 @@ link can open a language directly with `?lang=en|uz|uz-cyrl|ru|zh`.
 - E-mail, website and legal company name are taken from the company presentation
   (`info@vipetlogistics.com`, `www.vipetlogistics.com`, VİPET Nakliyat … Ltd. Şti.). Change them in
   `content.js` if USM Bekway uses its own.
-- Photos in `frontend/public/images/` come from the presentation and are low resolution. Replace
-  them with high-resolution originals (same file names) for best quality.
+- Photos: stock photos from [Pexels](https://www.pexels.com/license/) (free for commercial use,
+  no attribution required) — see the list below. The Turkey network map, logo and leadership
+  portraits are the company's own. Replace any photo by saving a new file with the same name.
+
+### Photo sources (Pexels IDs)
+
+| File | Pexels photo |
+|------|--------------|
+| road-truck.jpg | [28264496](https://www.pexels.com/photo/28264496/) |
+| road-truck2.jpg | [11087837](https://www.pexels.com/photo/11087837/) |
+| road-truck3.jpg | [8994766](https://www.pexels.com/photo/8994766/) |
+| project.jpg | [5961982](https://www.pexels.com/photo/5961982/) |
+| lowbed.jpg | [38095094](https://www.pexels.com/photo/38095094/) |
+| air-cargo.jpg | [9765261](https://www.pexels.com/photo/9765261/) |
+| sea.jpg | [12530458](https://www.pexels.com/photo/12530458/) |
+| hero-multimodal.jpg | [7519262](https://www.pexels.com/photo/7519262/) |
+| containers.jpg | [33587048](https://www.pexels.com/photo/33587048/) |
+| reefer.jpg | [27099094](https://www.pexels.com/photo/27099094/) |
+| warehouse.jpg | [4483610](https://www.pexels.com/photo/4483610/) |
+| warehouse-ext.jpg | [1267325](https://www.pexels.com/photo/1267325/) |
+| curtain-truck.jpg | [30484147](https://www.pexels.com/photo/30484147/) |
+| lift-truck.jpg | [6169178](https://www.pexels.com/photo/6169178/) |
