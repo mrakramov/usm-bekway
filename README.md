@@ -95,6 +95,16 @@ If the frontend is hosted separately (e.g. Vercel/Netlify), build it with
 `VITE_API_URL=https://api.your-domain.com npm run build` and add that site's URL to
 `CORS_ORIGINS` in the backend.
 
+## GitHub Pages (temporary hosting)
+
+Every push to `main` runs `.github/workflows/deploy-pages.yml`: backend tests, then a static
+build of the frontend (demo form) published to GitHub Pages.
+
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+(Pages on a private repository needs a paid GitHub plan; otherwise make the repository public.)
+
+The site appears at `https://mrakramov.github.io/usm-bekway/`.
+
 ## Static preview (no backend)
 
 ```bash
