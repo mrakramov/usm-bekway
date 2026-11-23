@@ -1,4 +1,4 @@
-import { services } from '../data/content.js';
+import { pillars, services } from '../data/content.js';
 
 export default function Services() {
   return (
@@ -12,6 +12,15 @@ export default function Services() {
           Your logistics office at every stage of the project — from first quote to final delivery.
         </p>
       </div>
+
+      <ul className="pillars" aria-label="Service areas">
+        {pillars.map((p, i) => (
+          <li key={p}>
+            <span>{String(i + 1).padStart(2, '0')}</span>
+            {p}
+          </li>
+        ))}
+      </ul>
 
       <div className="services__grid">
         {services.map((s) => (

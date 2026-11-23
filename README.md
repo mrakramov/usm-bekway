@@ -105,9 +105,12 @@ VITE_DEMO_MODE=true npm run build -- --base ./
 Produces a self-contained `dist/` that works from any folder or static host. In demo mode the
 quote form is validated in the browser but nothing is sent, and the page says so.
 
-## Still to fill in
+## Content notes
 
-- Company e-mail and website in `frontend/src/data/content.js` (`[YOUR EMAIL]`, `[YOUR WEBSITE]`).
-- Photos in `frontend/public/images/` come from the company presentation and are low resolution
-  (~500–1000 px). Replace them with original high-resolution photos (same file names) for best
-  quality.
+- All page copy is in `frontend/src/data/content.js` (services, transport modes, domestic network,
+  cargo types, history, leadership, offices).
+- E-mail, website and legal company name are taken from the company presentation
+  (`info@vipetlogistics.com`, `www.vipetlogistics.com`, VİPET Nakliyat … Ltd. Şti.). Change them in
+  `content.js` if USM Bekway uses its own.
+- Photos in `frontend/public/images/` come from the presentation and are low resolution. Replace
+  them with high-resolution originals (same file names) for best quality.

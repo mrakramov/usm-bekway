@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { offices, serviceOptions } from '../data/content.js';
+import { contactEmail, offices, serviceOptions, team } from '../data/content.js';
 import { submitQuote, DEMO_MODE } from '../api.js';
 
 const EMPTY = {
@@ -48,6 +48,24 @@ export default function Contact() {
                 <a href={`tel:${o.tel}`}>{o.phone}</a>
               </div>
             ))}
+            <div className="office">
+              <div className="office__city">Management — direct lines</div>
+              {team.map((p) => (
+                <div key={p.name} className="office__addr">
+                  {p.name}, {p.role}:{' '}
+                  {p.phones.map((ph, i) => (
+                    <span key={ph.tel}>
+                      {i > 0 && ', '}
+                      <a href={`tel:${ph.tel}`}>{ph.label}</a>
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="office">
+              <div className="office__city">E-mail</div>
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+            </div>
           </div>
         </div>
 
