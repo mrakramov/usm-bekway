@@ -1,10 +1,11 @@
+import { img } from '../assetPath.js';
 import { aboutTags } from '../data/content.js';
 
 export default function About() {
   return (
     <section id="about" className="container section about">
       <div className="about__logo">
-        <img src="/images/logo-full.png" alt="USM Bekway Logistics logo" loading="lazy" />
+        <img src={img('logo-full.png')} alt="USM Bekway Logistics logo" loading="lazy" />
       </div>
       <div className="about__copy">
         <p className="eyebrow">About us</p>

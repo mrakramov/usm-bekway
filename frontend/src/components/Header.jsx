@@ -1,3 +1,4 @@
+import { img } from '../assetPath.js';
 import { useEffect, useState } from 'react';
 import { navLinks } from '../data/content.js';
 
@@ -18,7 +19,7 @@ export default function Header() {
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <div className="container header__inner">
         <a href="#top" className="brand" onClick={close}>
-          <img src="/images/logo-mark.png" alt="" width="40" height="42" />
+          <img src={img('logo-mark.png')} alt="" width="40" height="42" />
           <span className="brand__text">
             <span className="brand__name">USM BEKWAY</span>
             <span className="brand__sub">LOGISTICS</span>

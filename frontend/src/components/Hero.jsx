@@ -1,6 +1,12 @@
+import { img } from '../assetPath.js';
+
+const heroBg = {
+  backgroundImage: `linear-gradient(90deg, rgba(42, 43, 46, 0.97) 0%, rgba(42, 43, 46, 0.88) 48%, rgba(42, 43, 46, 0.55) 100%), url(${img('road-truck.jpg')})`,
+};
+
 export default function Hero() {
   return (
-    <section id="top" className="hero">
+    <section id="top" className="hero" style={heroBg}>
       <div className="container hero__inner">
         <div className="hero__copy">
           <p className="eyebrow eyebrow--line">Europe · Middle East · Central Asia</p>

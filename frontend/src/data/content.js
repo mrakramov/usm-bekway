@@ -1,3 +1,4 @@
+import { img } from '../assetPath.js';
 // All site copy lives here so it can be edited without touching components.
 
 export const navLinks = [
@@ -17,39 +18,39 @@ export const stats = [
 
 export const services = [
   {
-    n: '01', img: '/images/road-truck.jpg', title: 'Road Freight',
+    n: '01', img: img('road-truck.jpg'), title: 'Road Freight',
     text: 'Full and partial loads across Europe, Turkey, the Middle East and Central Asia, including low-bed transport.',
   },
   {
-    n: '02', img: '/images/road-truck2.jpg', title: 'Transit Transport',
+    n: '02', img: img('road-truck2.jpg'), title: 'Transit Transport',
     text: 'Transit from all European countries to Afghanistan, Uzbekistan, Turkmenistan, Kazakhstan, Iraq, Iran and beyond.',
   },
   {
-    n: '03', img: '/images/project.jpg', title: 'Project Transportation',
+    n: '03', img: img('project.jpg'), title: 'Project Transportation',
     text: 'Oversized and heavy-lift cargo up to 80 m and 1000 t with hydraulic trailers and cranes.',
   },
   {
-    n: '04', img: '/images/air-cargo.jpg', title: 'Air Freight',
+    n: '04', img: img('air-cargo.jpg'), title: 'Air Freight',
     text: 'Airport-to-door and door-to-door service, cross-docking and transit loading through a wide agency network.',
   },
   {
-    n: '05', img: '/images/sea.jpg', title: 'Sea Freight',
+    n: '05', img: img('sea.jpg'), title: 'Sea Freight',
     text: 'Import and export, full container and groupage — port-to-port, port-to-door and door-to-door.',
   },
   {
-    n: '06', img: '/images/hero-multimodal.jpg', title: 'Intermodal',
+    n: '06', img: img('hero-multimodal.jpg'), title: 'Intermodal',
     text: 'Multimodal solutions combining road, rail, sea and air to bridge distant production sites.',
   },
   {
-    n: '07', img: '/images/reefer.jpg', title: 'Domestic Transport',
+    n: '07', img: img('reefer.jpg'), title: 'Domestic Transport',
     text: 'Complete, groupage and dedicated loads, refrigerated transport and fair & festival logistics.',
   },
   {
-    n: '08', img: '/images/warehouse.jpg', title: 'Warehousing & Distribution',
+    n: '08', img: img('warehouse.jpg'), title: 'Warehousing & Distribution',
     text: 'Integrated storage, handling, preparation, palletisation and distribution.',
   },
   {
-    n: '09', img: '/images/warehouse-ext.jpg', title: 'Customs Clearance',
+    n: '09', img: img('warehouse-ext.jpg'), title: 'Customs Clearance',
     text: 'Customs, documentation and insurance handled by an experienced team.',
   },
 ];

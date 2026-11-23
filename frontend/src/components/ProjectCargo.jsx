@@ -1,3 +1,4 @@
+import { img } from '../assetPath.js';
 export default function ProjectCargo() {
   return (
     <section id="project" className="project-wrap">
@@ -16,8 +17,8 @@ export default function ProjectCargo() {
             <div className="project__stat"><strong>1000 t</strong><span>Max part weight</span></div>
           </div>
           <div className="project__photos">
-            <img src="/images/project.jpg" alt="Oversized cylindrical cargo on a hydraulic trailer" loading="lazy" />
-            <img src="/images/lowbed.jpg" alt="Low-bed trailer on a coastal road" loading="lazy" />
+            <img src={img('project.jpg')} alt="Oversized cylindrical cargo on a hydraulic trailer" loading="lazy" />
+            <img src={img('lowbed.jpg')} alt="Low-bed trailer on a coastal road" loading="lazy" />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { offices, serviceOptions } from '../data/content.js';
-import { submitQuote } from '../api.js';
+import { submitQuote, DEMO_MODE } from '../api.js';
 
 const EMPTY = {
   name: '',
@@ -56,8 +56,17 @@ export default function Contact() {
 
           {status === 'sent' ? (
             <div className="form-success" role="status">
-              <strong>Thank you — your request has been sent.</strong>
-              <p>Our team will reply with a route and a price shortly.</p>
+              {DEMO_MODE ? (
+                <>
+                  <strong>Form check passed (preview).</strong>
+                  <p>This preview is not connected to the backend, so nothing was sent.</p>
+                </>
+              ) : (
+                <>
+                  <strong>Thank you — your request has been sent.</strong>
+                  <p>Our team will reply with a route and a price shortly.</p>
+                </>
+              )}
               <button type="button" className="btn btn--ghost" onClick={() => setStatus('idle')}>
                 Send another request
               </button>
@@ -105,6 +114,10 @@ export default function Contact() {
                   <input type="text" tabIndex={-1} autoComplete="off" value={form.company_website} onChange={update('company_website')} />
                 </label>
               </div>
+
+              {DEMO_MODE && (
+                <p className="demo-note">Preview mode: submissions are not sent anywhere.</p>
+              )}
 
               {status === 'error' && (
                 <p className="form-error" role="alert">{error}</p>

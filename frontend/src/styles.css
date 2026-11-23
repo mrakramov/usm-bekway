@@ -169,9 +169,10 @@ input, select, textarea, button { font: inherit; }
 .hero {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(42, 43, 46, 0.97) 0%, rgba(42, 43, 46, 0.88) 48%, rgba(42, 43, 46, 0.55) 100%),
-    url('/images/road-truck.jpg') center / cover no-repeat;
+  background-color: var(--bg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .hero__inner {
   display: flex;
@@ -375,6 +376,7 @@ input, select, textarea, button { font: inherit; }
 .form-success { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; padding: 8px 0; }
 .form-success strong { color: var(--gold); font-size: 18px; }
 .form-success p { margin: 0 0 8px; color: var(--text-mid); }
+.demo-note { margin: 0; font-size: 13px; color: var(--muted); border: 1px dashed var(--input-line); border-radius: 12px; padding: 10px 12px; }
 
 /* ============ Footer ============ */
 .footer { border-top: 1px solid var(--line); }

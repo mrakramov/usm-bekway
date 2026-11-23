@@ -95,6 +95,16 @@ If the frontend is hosted separately (e.g. Vercel/Netlify), build it with
 `VITE_API_URL=https://api.your-domain.com npm run build` and add that site's URL to
 `CORS_ORIGINS` in the backend.
 
+## Static preview (no backend)
+
+```bash
+cd frontend
+VITE_DEMO_MODE=true npm run build -- --base ./
+```
+
+Produces a self-contained `dist/` that works from any folder or static host. In demo mode the
+quote form is validated in the browser but nothing is sent, and the page says so.
+
 ## Still to fill in
 
 - Company e-mail and website in `frontend/src/data/content.js` (`[YOUR EMAIL]`, `[YOUR WEBSITE]`).
