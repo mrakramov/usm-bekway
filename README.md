@@ -115,10 +115,21 @@ VITE_DEMO_MODE=true npm run build -- --base ./
 Produces a self-contained `dist/` that works from any folder or static host. In demo mode the
 quote form is validated in the browser but nothing is sent, and the page says so.
 
+## Languages
+
+The site is available in English, Uzbek (Latin), Uzbek (Cyrillic), Russian and Chinese.
+Visitors switch language from the globe button in the header. The choice is remembered, and a
+link can open a language directly with `?lang=en|uz|uz-cyrl|ru|zh`.
+
+- Text for each language: `frontend/src/i18n/locales/<lang>.js` (`en.js` is the reference).
+- **Uzbek Cyrillic is generated** from `uz.js` — edit the Latin file, then run
+  `npm run i18n:cyrl`. Do not edit `uz-cyrl.js` by hand.
+- `npm run i18n:check` verifies every language has the same keys as English (also runs in CI).
+
 ## Content notes
 
-- All page copy is in `frontend/src/data/content.js` (services, transport modes, domestic network,
-  cargo types, history, leadership, offices).
+- Page text is in `frontend/src/i18n/locales/`; images, phone numbers and other
+  language-independent data are in `frontend/src/data/content.js`.
 - E-mail, website and legal company name are taken from the company presentation
   (`info@vipetlogistics.com`, `www.vipetlogistics.com`, VİPET Nakliyat … Ltd. Şti.). Change them in
   `content.js` if USM Bekway uses its own.

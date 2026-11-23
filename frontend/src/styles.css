@@ -18,8 +18,9 @@
   --muted: #a9a39a;
   --radius: 20px;
   --radius-lg: 24px;
-  --font-display: 'Montserrat', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-cjk: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC';
+  --font-display: 'Montserrat', system-ui, var(--font-cjk), sans-serif;
+  --font-body: 'Inter', system-ui, var(--font-cjk), sans-serif;
   --container: 1200px;
 }
 
@@ -142,7 +143,8 @@ input, select, textarea, button { font: inherit; }
 .brand__name { font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: 0.04em; color: var(--white); }
 .brand__sub { font-family: var(--font-display); font-weight: 600; font-size: 10px; letter-spacing: 0.4em; color: var(--gold); }
 
-.nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+.nav { display: flex; align-items: center; gap: 22px; font-size: 14.5px; order: 2; margin-left: auto; white-space: nowrap; }
+.brand { order: 1; flex-shrink: 0; }
 .nav a:not(.btn) { color: var(--text-soft); }
 .nav a:not(.btn):hover { color: var(--gold); }
 .nav__cta { margin-left: 8px; }
@@ -191,7 +193,11 @@ input, select, textarea, button { font: inherit; }
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--white);
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
+html[lang='ru'] .hero__title,
+html[lang='uz-Cyrl'] .hero__title { font-size: clamp(36px, 4.9vw, 66px); }
 .hero__lead { margin: 28px 0 0; max-width: 520px; font-size: 19px; color: var(--text-mid); }
 
 .route-card {
@@ -392,6 +398,24 @@ input, select, textarea, button { font: inherit; }
   color: var(--muted);
 }
 
+/* ============ Language switcher ============ */
+.header__actions { display: flex; align-items: center; gap: 10px; order: 3; }
+.lang { position: relative; }
+.lang__toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--input-line); background: transparent; color: var(--text-soft); cursor: pointer; font-size: 14px; font-weight: 600; }
+.lang__toggle:hover, .lang__toggle[aria-expanded='true'] { border-color: var(--gold); color: var(--white); }
+.lang__chev { transition: transform 0.2s; }
+.lang__toggle[aria-expanded='true'] .lang__chev { transform: rotate(180deg); }
+.lang__menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 60; list-style: none; margin: 0; padding: 6px; min-width: 190px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 14px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35); }
+.lang__menu button { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 12px; min-height: 44px; border: 0; border-radius: 10px; background: transparent; color: var(--text-soft); cursor: pointer; text-align: left; font-size: 15px; }
+.lang__menu button:hover { background: var(--line); color: var(--white); }
+.lang__menu button.is-active { color: var(--gold); }
+.lang__short { width: 34px; font-weight: 700; font-size: 13px; color: var(--muted); }
+.lang__menu button.is-active .lang__short { color: var(--gold); }
+
+/* Chinese: no letter-spacing on uppercase labels, slightly looser line height */
+html[lang|='zh'] .eyebrow, html[lang|='zh'] .person__role, html[lang|='zh'] .route-card__head { letter-spacing: 0.06em; }
+html[lang|='zh'] .hero__title, html[lang|='zh'] .h2 { line-height: 1.2; letter-spacing: 0; }
+
 /* ============ Chips ============ */
 .chips { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li { border: 1px solid var(--input-line); border-radius: 999px; padding: 6px 14px; font-size: 13px; color: var(--text-soft); background: rgba(255, 255, 255, 0.02); }
@@ -477,27 +501,46 @@ input, select, textarea, button { font: inherit; }
 .footer__links { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
 
 /* ============ Responsive ============ */
-@media (max-width: 1100px) {
-  .menu-toggle { display: inline-flex; }
-  .nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-    padding: 12px 24px 24px;
-    background: var(--bg-band);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav--open { display: flex; }
-  .nav a:not(.btn) { padding: 12px 0; border-bottom: 1px solid var(--line); }
-  .nav__cta { margin: 12px 0 0; }
-  .header { position: sticky; }
-  .header__inner { position: relative; }
+/* Compact header: the Header component adds .header--compact whenever the
+   links don't fit (this depends on the language), and always below 900px. */
+.header--compact .menu-toggle { display: inline-flex; }
+.header--compact .nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  padding: 12px 24px 24px;
+  background: var(--bg-band);
+  border-bottom: 1px solid var(--line);
+  white-space: normal;
 }
+.header--compact .nav--open { display: flex; }
+.header--compact .nav a:not(.btn) { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.header--compact .nav__cta { margin: 12px 0 0; }
+.header__inner { position: relative; }
+/* Used only while measuring: lay the nav out in its full desktop form, invisibly */
+.header .nav.nav--measure {
+  display: flex !important;
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  right: auto;
+  width: max-content;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+}
+.header .nav.nav--measure a:not(.btn) { padding: 0; border: 0; }
+.header .nav.nav--measure .nav__cta { margin: 0 0 0 8px; }
 
 @media (max-width: 640px) {
   .hero__inner { padding-top: 64px; padding-bottom: 64px; }

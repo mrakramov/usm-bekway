@@ -1,11 +1,12 @@
-import { stats } from '../data/content.js';
+import { useI18n } from '../i18n/index.jsx';
 
 export default function Stats() {
+  const { t } = useI18n();
   return (
-    <section aria-label="Key figures" className="stats">
+    <section aria-label={t.stats.label} className="stats">
       <div className="container stats__grid">
-        {stats.map((s) => (
-          <div key={s.label}>
+        {t.stats.items.map((s) => (
+          <div key={s.value}>
             <div className="stats__value">{s.value}</div>
             <div className="stats__label">{s.label}</div>
           </div>

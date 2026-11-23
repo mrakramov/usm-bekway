@@ -32,7 +32,9 @@ export async function submitQuote(payload) {
     } else if (typeof detail === 'string') {
       message = detail;
     }
-    throw new Error(message);
+    const err = new Error(message);
+    err.status = res.status; // used by the form to show a translated message
+    throw err;
   }
   return data;
 }

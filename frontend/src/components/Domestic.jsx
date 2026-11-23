@@ -1,27 +1,27 @@
 import { img } from '../assetPath.js';
-import { cargoTypes, domesticCities, specialServices } from '../data/content.js';
+import { specialImages } from '../data/content.js';
+import { useI18n } from '../i18n/index.jsx';
 
 export default function Domestic() {
+  const { t } = useI18n();
+  const d = t.domestic;
   return (
     <section id="domestic" className="domestic">
       <div className="container">
         <div className="section-head">
           <div>
-            <p className="eyebrow">Domestic transport · Türkiye</p>
-            <h2 className="h2">A national network in all four corners of Turkey.</h2>
+            <p className="eyebrow">{d.eyebrow}</p>
+            <h2 className="h2">{d.title}</h2>
           </div>
-          <p className="muted section-head__aside">
-            For all your domestic, complete, groupage and dedicated shipments — the most appropriate
-            quality-price service.
-          </p>
+          <p className="muted section-head__aside">{d.aside}</p>
         </div>
 
         <div className="domestic__top">
           <figure className="domestic__map">
-            <img src={img('turkey-network.jpg')} alt="Map of Turkey showing routes between Istanbul, Bursa, Izmir, Ankara, Mersin, Gaziantep and Trabzon" loading="lazy" />
+            <img src={img('turkey-network.jpg')} alt={d.mapAlt} loading="lazy" />
             <figcaption>
               <ul className="chips chips--dark">
-                {domesticCities.map((c) => (
+                {d.cities.map((c) => (
                   <li key={c}>{c}</li>
                 ))}
               </ul>
@@ -29,20 +29,20 @@ export default function Domestic() {
           </figure>
 
           <div className="cargo-types">
-            <h3>Cargo we carry</h3>
+            <h3>{d.cargoTitle}</h3>
             <ul>
-              {cargoTypes.map((c) => (
+              {d.cargo.map((c) => (
                 <li key={c}>{c}</li>
               ))}
             </ul>
           </div>
         </div>
 
-        <h3 className="domestic__sub">Special services</h3>
+        <h3 className="domestic__sub">{d.specialTitle}</h3>
         <div className="special-grid">
-          {specialServices.map((s) => (
-            <article key={s.title} className="special">
-              <img src={s.img} alt="" loading="lazy" />
+          {d.special.map((s, i) => (
+            <article key={i} className="special">
+              <img src={specialImages[i]} alt="" loading="lazy" />
               <div className="special__body">
                 <h4>{s.title}</h4>
                 <p>{s.text}</p>

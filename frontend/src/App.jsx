@@ -10,11 +10,13 @@ import About from './components/About.jsx';
 import Team from './components/Team.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import { useI18n } from './i18n/index.jsx';
 
 export default function App() {
+  const { t } = useI18n();
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
+      <a className="skip-link" href="#main">{t.skip}</a>
       <Header />
       <main id="main">
         <Hero />

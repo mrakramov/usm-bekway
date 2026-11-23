@@ -1,35 +1,30 @@
 import { img } from '../assetPath.js';
-import { aboutTags, history } from '../data/content.js';
+import { useI18n } from '../i18n/index.jsx';
 
 export default function About() {
+  const { t } = useI18n();
+  const a = t.about;
   return (
     <section id="about" className="container section about-wrap">
       <div className="about">
         <div className="about__logo">
-          <img src={img('logo-full.png')} alt="USM Bekway Logistics logo" loading="lazy" />
+          <img src={img('logo-full.png')} alt={a.logoAlt} loading="lazy" />
         </div>
         <div className="about__copy">
-          <p className="eyebrow">About us</p>
-          <h2 className="h2 h2--md">A century of freight experience, passed from father to son.</h2>
-          <p className="about__text">
-            We are the partner and companion of our customers in a growing and developing economy —
-            the logistics solution office of customers who trust us with their experience and
-            knowledge at every stage of the project.
-          </p>
-          <p className="about__text">
-            With a strong organisational structure, we make a difference by producing special
-            boutique services and flexible solutions.
-          </p>
+          <p className="eyebrow">{a.eyebrow}</p>
+          <h2 className="h2 h2--md">{a.title}</h2>
+          <p className="about__text">{a.p1}</p>
+          <p className="about__text">{a.p2}</p>
           <ul className="tags">
-            {aboutTags.map((t) => (
-              <li key={t}>{t}</li>
+            {a.tags.map((tag) => (
+              <li key={tag}>{tag}</li>
             ))}
           </ul>
         </div>
       </div>
 
-      <ol className="timeline" aria-label="Company history">
-        {history.map((h) => (
+      <ol className="timeline" aria-label={a.historyLabel}>
+        {a.history.map((h) => (
           <li key={h.year} className="timeline__item">
             <span className="timeline__year">{h.year}</span>
             <p>{h.text}</p>

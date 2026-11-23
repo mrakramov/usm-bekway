@@ -1,13 +1,15 @@
-import { regions } from '../data/content.js';
+import { highlightedRegion } from '../data/content.js';
+import { useI18n } from '../i18n/index.jsx';
 
 export default function Coverage() {
+  const { t } = useI18n();
   return (
     <section id="coverage" className="container section">
-      <p className="eyebrow">Coverage</p>
-      <h2 className="h2 h2--spaced">From the Atlantic to the Pamir.</h2>
+      <p className="eyebrow">{t.coverage.eyebrow}</p>
+      <h2 className="h2 h2--spaced">{t.coverage.title}</h2>
       <div className="coverage__grid">
-        {regions.map((r) => (
-          <div key={r.name} className={`region${r.highlight ? ' region--highlight' : ''}`}>
+        {t.coverage.regions.map((r, i) => (
+          <div key={i} className={`region${i === highlightedRegion ? ' region--highlight' : ''}`}>
             <h3>{r.name}</h3>
             <p>{r.countries}</p>
             {r.note && <p className="region__note">{r.note}</p>}
