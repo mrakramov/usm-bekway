@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { contactEmail, offices, serviceOptions, team } from '../data/content.js';
+import { companyDetails, contactEmail, offices, serviceOptions, team } from '../data/content.js';
 import { submitQuote, DEMO_MODE } from '../api.js';
 
 const EMPTY = {
@@ -45,7 +45,11 @@ export default function Contact() {
               <div key={o.city} className={`office${o.primary ? ' office--primary' : ''}`}>
                 <div className="office__city">{o.city}</div>
                 <div className="office__addr">{o.address}</div>
-                <a href={`tel:${o.tel}`}>{o.phone}</a>
+                <div className="office__phones">
+                  {o.phones.map((ph) => (
+                    <a key={ph.tel} href={`tel:${ph.tel}`}>{ph.label}</a>
+                  ))}
+                </div>
               </div>
             ))}
             <div className="office">
@@ -66,6 +70,20 @@ export default function Contact() {
               <div className="office__city">E-mail</div>
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
             </div>
+          </div>
+
+          <div className="requisites">
+            <h3>Company details</h3>
+            <p className="requisites__name">{companyDetails.legalName}</p>
+            <p className="requisites__addr">{companyDetails.address}</p>
+            <dl>
+              {companyDetails.rows.map((r) => (
+                <div key={r.label}>
+                  <dt>{r.label}</dt>
+                  <dd>{r.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
 

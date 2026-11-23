@@ -235,23 +235,23 @@ export const team = [
 
 export const offices = [
   {
-    city: 'Tashkent',
-    address: 'M. Ulugbek, Shahriabad 3, Tashkent, Uzbekistan',
-    phone: '+998 71 262 12 95',
-    tel: '+998712621295',
+    city: 'Tashkent — USM Bekway Logistics',
+    address: 'Birlik MFY, 21-mavze, 1-uy, Uchtepa district, Tashkent, Uzbekistan',
+    phones: [
+      { label: '+998 93 548 38 39', tel: '+998935483839' },
+      { label: '+998 98 100 31 30', tel: '+998981003130' },
+    ],
     primary: true,
   },
   {
-    city: 'Istanbul — Head office',
+    city: 'Istanbul — Partner office',
     address: 'Tatlısu Mh. Arif Ay Sk. No: 40, MTK Plaza K:1/5, Ümraniye, Istanbul',
-    phone: '+90 216 594 56 32',
-    tel: '+902165945632',
+    phones: [{ label: '+90 216 594 56 32', tel: '+902165945632' }],
   },
   {
-    city: 'Mersin',
+    city: 'Mersin — Partner office',
     address: 'Camişerif Mh. 5248 Sk. Utku Apt. A Blok Kat: 4/16, Akdeniz, Mersin',
-    phone: '+90 324 239 07 27',
-    tel: '+903242390727',
+    phones: [{ label: '+90 324 239 07 27', tel: '+903242390727' }],
   },
 ];
 
@@ -266,8 +266,20 @@ export const serviceOptions = [
   'Customs clearance',
 ];
 
-// From the presentation. Replace if USM Bekway has its own e-mail / domain.
+// E-mail and website from the presentation. Replace when USM Bekway has its own.
 export const contactEmail = 'info@vipetlogistics.com';
 export const website = 'www.vipetlogistics.com';
-export const legalName =
-  'VİPET Nakliyat Petrolcülük Lojistik Turizm İnş. Gıda İth. İhr. Otomotiv San. ve Dış Tic. Ltd. Şti.';
+export const legalName = '“USM BEKWAY LOGISTICS” MChJ';
+
+// Official company details (requisites)
+export const companyDetails = {
+  legalName: '“USM BEKWAY LOGISTICS” MChJ',
+  address: 'Toshkent shahri, Uchtepa tumani, Birlik MFY, 21-mavze, 1-uy',
+  rows: [
+    { label: 'Settlement account (H/r)', value: '2020 8000 8074 9658 4001' },
+    { label: 'Bank', value: 'O‘zsanoat Qurilish Bank, Yakkasaroy branch' },
+    { label: 'MFO (bank code)', value: '00440' },
+    { label: 'STIR (TIN)', value: '313 153 245' },
+    { label: 'Director', value: 'B.D. Usmanov' },
+  ],
+};
